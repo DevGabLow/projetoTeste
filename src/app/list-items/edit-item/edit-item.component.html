@@ -1,0 +1,71 @@
+<h4 class="mt-5">Detalhes</h4>
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-bordered">
+            <tr>
+                <td>Id</td>
+                <td>{{item.id}}</td>
+            </tr>
+            <tr>
+                <td>Nome do Item</td>
+                <td><strong>{{item.name}}</strong></td>
+            </tr>
+            <tr>
+                <td>Quantidade</td>
+                <td>{{item.quantity}}</td>
+            </tr>
+            <tr>
+                <td>Preço</td>
+                <td>{{item.preco | currency: 'BRL'}}</td>
+            </tr>
+            <tr>
+                <td>Total desse produto $$</td>
+                <td>{{item.preco * item.quantity | currency: 'BRL'}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <form action="" method="post" #form="ngForm" (ngSubmit)="update(form)" novalidate>
+            <table class="table table-bordered">
+                <tr>
+                    <td>Nome do item</td>
+                    <td>
+                        <div class="form-group">                            
+                            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="item.name" #name="ngModel" required minlength="3">
+                            <div class="" *ngIf="form.submitted && name.invalid">
+                                <p class="alert alert-danger mt-2" *ngIf="name.errors.required">Esse campo é requerido</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Quantidade</td>
+                    <td>
+                        <div class="form-group">                            
+                            <input type="number" class="form-control" id="quantity" name="quantity" [(ngModel)]="item.quantity" #quantity="ngModel" required minlength="3">
+                            <div class="" *ngIf="form.submitted && quantity.invalid">
+                                <p class="alert alert-danger mt-2" *ngIf="quantity.errors.required">Esse campo é requerido</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Preço</td>
+                    <td>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="preco" name="preco" [(ngModel)]="item.preco" #preco="ngModel" required minlength="3">
+                            <div class="" *ngIf="form.submitted && preco.invalid">
+                                <p class="alert alert-danger mt-2" *ngIf="preco.errors.required">Esse campo é requerido</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+               
+            </table>            
+            <div class="form-group  text-right">
+                <button type="submit" class="btn btn-info">Salvar alteração</button>
+            </div>
+        </form>
+    </div>
+</div>
+

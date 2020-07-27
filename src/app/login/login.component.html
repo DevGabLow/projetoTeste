@@ -1,0 +1,28 @@
+<div class="container mt-5 w-50">
+    <h5 class="card-title text-center">Tela de Login</h5>
+    <div class="card">
+        
+        <div class="card-body">
+            <form action="" method="post" #form="ngForm" (ngSubmit)="signin(form)" novalidate>
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email" #email="ngModel" required email minlength="3">
+                    <div class="" *ngIf="form.submitted && email.invalid">
+                        <p class="alert alert-danger mt-2" *ngIf="email.errors.required">Esse campo é requerido</p>
+                        <p class="alert alert-danger  mt-2"  *ngIf="email.errors.email">Email inválido!</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" #password="ngModel" required minlength="3">
+                    <div class="" *ngIf="form.submitted && password.invalid">
+                        <p class="alert alert-danger  mt-2"  *ngIf="password.errors.required">Esse campo é requerido</p>
+                        <p class="alert alert-danger  mt-2"  *ngIf="password.errors.minlength">Mínimo 3 caracteres!</p>
+                    </div>
+                </div>
+                <button class="btn btn-dark">Entrar</button>
+            </form>
+        </div>
+    </div>
+    
+</div>
