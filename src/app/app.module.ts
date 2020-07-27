@@ -22,6 +22,7 @@ import { EditItemComponent } from './list-items/edit-item/edit-item.component';
 import { NewItemComponent } from './list-items/new-item/new-item.component';
 import { DeleteComponent } from './list-items/delete/delete.component';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { RouterModule } from '@angular/router';
 
 
 const maskConfig: Partial<IConfig> = {
@@ -53,6 +54,16 @@ const maskConfig: Partial<IConfig> = {
     HttpClientModule,
     FormsModule,
     NgxMaskModule.forRoot(maskConfig),
+    RouterModule.forRoot([
+      {path: '',
+      component: LoginComponent,
+      data: {
+        title: 'Login',
+        description: 'Logar',
+        page: 'login'
+      }
+    },
+    ])
     
   ],
   providers: [AuthGuardService],
