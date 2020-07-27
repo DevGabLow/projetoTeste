@@ -55,14 +55,25 @@ const maskConfig: Partial<IConfig> = {
     FormsModule,
     NgxMaskModule.forRoot(maskConfig),
     RouterModule.forRoot([
-      {path: '',
-      component: LoginComponent,
-      data: {
-        title: 'Login',
-        description: 'Logar',
-        page: 'login'
+      {
+        path: '',
+        component: LoginComponent,
+        data: {
+          title: 'Login',
+          description: 'Logar',
+          page: 'login'
+        }
+      },
+      {
+        path: 'users',
+        component: UsersComponent,
+        canActivate: [AuthGuardService],
+        data: {
+          title: 'users',
+          description: 'tela autenticada',
+          page: 'users'
+        }
       }
-    },
     ])
     
   ],
