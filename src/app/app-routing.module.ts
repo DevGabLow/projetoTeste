@@ -16,14 +16,13 @@ import { NewItemComponent } from './list-items/new-item/new-item.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'login', component:LoginComponent},
+  {path: '', redirectTo: '', pathMatch: 'full'},
   {
     path: '',
     component: LayoutComponent,
     children: [
       {path: 'inicio',component: InicioComponent},
-      {path: 'login', component: LoginComponent},     
+      {path: '', component: LoginComponent},     
       {path: 'users',component: UsersComponent,canActivate: [AuthGuardService]},
      
     ]
