@@ -73,6 +73,16 @@ const maskConfig: Partial<IConfig> = {
           description: 'tela autenticada',
           page: 'users'
         }
+      },
+      {
+        path: 'listItems',
+        component: ListItemsComponent,
+        canActivate: [AuthGuardService],
+        data:{
+          title: 'listItems',
+          description: 'Listagem de itens',
+          page: 'listItems'
+        }
       }
     ])
     
