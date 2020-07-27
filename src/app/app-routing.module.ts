@@ -16,7 +16,7 @@ import { NewItemComponent } from './list-items/new-item/new-item.component';
 
 
 const routes: Routes = [
-      {path: '', redirectTo: 'login'},
+      {path: '', redirectTo: 'login', pathMatch: 'full'},
       {path: 'login', component: LoginComponent},     
       {path: 'users',component: UsersComponent,canActivate: [AuthGuardService]},
       {path: 'listItems', component: ListItemsComponent, canActivate: [AuthGuardService]},
