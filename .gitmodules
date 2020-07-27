@@ -1,3 +1,3 @@
-[submodule "theme/projetoTeste"]
+[submodule "themes/projetoTeste"]
     path = themes/projetoTeste
     url = https://github.com/DevGabLow/projetoTeste.git
