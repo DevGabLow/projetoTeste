@@ -16,30 +16,25 @@ import { NewItemComponent } from './list-items/new-item/new-item.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '', pathMatch: 'full'},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
   {
     path: '',
     component: LayoutComponent,
     children: [
       {path: 'inicio',component: InicioComponent},
-      {path: '', component: LoginComponent},     
-      {path: 'users',component: UsersComponent,canActivate: [AuthGuardService]},
+      {path: 'login', component: LoginComponent},     
+      {path: 'users',component: UsersComponent,canActivate: [AuthGuardService], children:[
+        {path: 'listItems', component: ListItemsComponent, canActivate: [AuthGuardService]},
+        {path: 'newItem', component: NewItemComponent, canActivate: [AuthGuardService]},
+        {path: 'editItem/:id', component: EditItemComponent, canActivate: [AuthGuardService]},
+        //Delivery Rotas
+        {path: 'registerDelivery',component: RegistarComponent, canActivate: [AuthGuardService]},
+        {path: 'listDelivery',component: ListProductComponent, canActivate: [AuthGuardService]},
+        {path: 'editListProduct/:id',canActivate: [AuthGuardService],component: EditListProductComponent },
+        {path: 'enabled/:id',canActivate: [AuthGuardService],component: EnabledComponent },
+        {path: 'deleted/:id',canActivate: [AuthGuardService],component: DeletedComponent },
+      ] },
      
-    ]
-  },
-  {
-    path: '',
-    component: UsersComponent,
-    children: [
-      {path: 'listItems', component: ListItemsComponent, canActivate: [AuthGuardService]},
-      {path: 'newItem', component: NewItemComponent, canActivate: [AuthGuardService]},
-      {path: 'editItem/:id', component: EditItemComponent, canActivate: [AuthGuardService]},
-      //Delivery Rotas
-      {path: 'registerDelivery',component: RegistarComponent, canActivate: [AuthGuardService]},
-      {path: 'listDelivery',component: ListProductComponent, canActivate: [AuthGuardService]},
-      {path: 'editListProduct/:id',canActivate: [AuthGuardService],component: EditListProductComponent },
-      {path: 'enabled/:id',canActivate: [AuthGuardService],component: EnabledComponent },
-      {path: 'deleted/:id',canActivate: [AuthGuardService],component: DeletedComponent },
     ]
   }
 ];
