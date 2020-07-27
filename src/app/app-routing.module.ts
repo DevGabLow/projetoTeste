@@ -16,12 +16,7 @@ import { NewItemComponent } from './list-items/new-item/new-item.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {
-    path: '',
-    component: LayoutComponent,
-    children: [
-      {path: 'inicio',component: InicioComponent},
+      {path: '', redirectTo: 'login'},
       {path: 'login', component: LoginComponent},     
       {path: 'users',component: UsersComponent,canActivate: [AuthGuardService]},
       {path: 'listItems', component: ListItemsComponent, canActivate: [AuthGuardService]},
@@ -34,8 +29,6 @@ const routes: Routes = [
       {path: 'enabled/:id',canActivate: [AuthGuardService],component: EnabledComponent },
       {path: 'deleted/:id',canActivate: [AuthGuardService],component: DeletedComponent },
      
-    ]
-  }
 ];
 
 @NgModule({
