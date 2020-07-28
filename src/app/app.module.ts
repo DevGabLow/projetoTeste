@@ -67,16 +67,6 @@ const maskConfig: Partial<IConfig> = {
       {
         path: 'users',
         component: UsersComponent,
-        children: [
-          { 
-          path: 'listItems', component: ListItemsComponent, canActivate: [AuthGuardService],
-          data:{
-            title: 'listItems',
-            description: 'Listagem de itens',
-            page: 'listItems'
-          }
-        }
-        ],
         canActivate: [AuthGuardService],
         data: {
           title: 'users',
@@ -84,6 +74,16 @@ const maskConfig: Partial<IConfig> = {
           page: 'users'
         }
       },
+      {
+        path: 'listItems',
+        component: ListItemsComponent,
+        canActivate: [AuthGuardService],
+        data:{
+          title: 'listItems',
+          description: 'Listagem de itens',
+          page: 'listItems'
+        }
+      }
     ])
     
   ],
