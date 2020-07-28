@@ -16,7 +16,7 @@ const ApiRoutes = {
 })
 export class UsersService {
 
-  private UriApi: string = 'http://localhost:3000/';
+  private UriApi: string = 'https://apirestbb.herokuapp.com/';
 
   constructor(private http: HttpClient) { }
 
