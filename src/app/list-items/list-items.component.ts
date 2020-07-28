@@ -20,7 +20,7 @@ export class ListItemsComponent implements OnInit {
     preco: 0,
     deleted: 0,
     id: 0,
-  }
+}
   private token = `bearer ${localStorage.getItem('token')}`;
 
   constructor(private usersService: UsersService) { }
@@ -44,6 +44,5 @@ export class ListItemsComponent implements OnInit {
         this.items = this.items.filter(item => id != item.id)
       })
      });
-    
   }
 }

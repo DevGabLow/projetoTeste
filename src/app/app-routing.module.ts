@@ -15,8 +15,7 @@ import { EditItemComponent } from './list-items/edit-item/edit-item.component';
 import { NewItemComponent } from './list-items/new-item/new-item.component';
 
 
-const routes: Routes = [ 
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
