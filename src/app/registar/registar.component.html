@@ -19,6 +19,13 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="Local">Telefone</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" [(ngModel)]="delivery.phone" #phone="ngModel" required minlength="3">
+                    <div class="" *ngIf="form.submitted && phone.invalid">
+                        <p class="alert alert-danger mt-2" *ngIf="phone.errors.required">Esse campo é requerido</p>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="Hora">Hora</label>
                     <input type="time" class="form-control" id="hora" name="hora" [(ngModel)]="delivery.hora" #hora="ngModel" required minlength="3">
                     <div class="" *ngIf="form.submitted && hora.invalid">

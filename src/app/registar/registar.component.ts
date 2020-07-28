@@ -20,6 +20,7 @@ export class RegistarComponent implements OnInit {
     this.delivery = {
       name : '',
       local: '',
+      phone: '',
       hora: '',
       quantidade: '',
       status: '',

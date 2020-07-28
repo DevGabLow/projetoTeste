@@ -13,6 +13,7 @@ export class EditListProductComponent implements OnInit {
     id: 0,
     name: '',
     local: '',
+    phone: '',
     hora: '',
     status: '',
     quantity: '',

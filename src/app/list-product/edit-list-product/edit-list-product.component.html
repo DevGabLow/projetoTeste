@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 <div class="container">
     <h4 class="mt-5">Detalhes</h4>
-=======
-<h4 class="mt-5">Detalhes</h4>
->>>>>>> 44dd85505f2317384250b3cd73974020457bb2bd
 <div class="row">
     <div class="col-md-6">
         <table class="table table-bordered">
@@ -12,7 +8,7 @@
                 <td>{{del.id}}</td>
             </tr>
             <tr>
-                <td>Name</td>
+                <td>Nome</td>
                 <td><strong>{{del.name}}</strong></td>
             </tr>
             <tr>
@@ -20,7 +16,11 @@
                 <td>{{del.local}}</td>
             </tr>
             <tr>
-                <td>hora</td>
+                <td>Telefone</td>
+                <td>{{del.phone}}</td>
+            </tr>
+            <tr>
+                <td>Hora</td>
                 <td>{{del.hora}}</td>
             </tr>
             <tr>
@@ -54,6 +54,17 @@
                             <input type="text" class="form-control" id="local" name="local" [(ngModel)]="del.local" #local="ngModel" required minlength="3">
                             <div class="" *ngIf="form.submitted && local.invalid">
                                 <p class="alert alert-danger mt-2" *ngIf="local.errors.required">Esse campo é requerido</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Telefone</td>
+                    <td>
+                        <div class="form-group">                            
+                            <input type="tel" class="form-control" id="phone" name="phone" [(ngModel)]="del.phone" #phone="ngModel" required minlength="3">
+                            <div class="" *ngIf="form.submitted && phone.invalid">
+                                <p class="alert alert-danger mt-2" *ngIf="phone.errors.required">Esse campo é requerido</p>
                             </div>
                         </div>
                     </td>
