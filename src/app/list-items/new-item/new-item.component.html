@@ -1,0 +1,32 @@
+<div class="container mt-5 mb-5">
+    <h5 class="card-title text-center">Cadastrar entrega</h5>
+    <div class="card">
+
+        <div class="card-body">
+            <form method="POST" #form="ngForm" (ngSubmit)="registerItem(form)" novalidate>
+                <div class="form-group">
+                    <label for="Nome">Nome do item</label>
+                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="item.name" #name="ngModel" required minlength="3">
+                    <div class="" *ngIf="form.submitted && name.invalid">
+                        <p class="alert alert-danger mt-2" *ngIf="name.errors.required">Esse campo é requerido</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Quantidade">Quantidade</label>
+                    <input type="number" class="form-control" id="quantity" name="quantity" [(ngModel)]="item.quantity" #quantity="ngModel" required minlength="3">
+                    <div class="" *ngIf="form.submitted && quantity.invalid">
+                        <p class="alert alert-danger mt-2" *ngIf="quantity.errors.required">Esse campo é requerido</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="preco">Preço</label>
+                    <input type="number" class="form-control" id="preco" name="preco" [(ngModel)]="item.preco" #preco="ngModel" required minlength="3">
+                    <div *ngIf="form.submitted && preco.invalid">
+                        <p class="alert alert-danger mt-2">Esse campo é requerido</p>
+                    </div>
+                </div>
+                    <button class="btn btn-info">Cadastrar item</button>
+            </form>
+        </div>
+    </div>
+</div>

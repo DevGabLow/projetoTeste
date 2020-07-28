@@ -1,0 +1,47 @@
+<div class="container mt-5">
+  <div class="col">
+    <h3 class="col text-center m-0">Encomendas</h3>
+    <div class="text-right mb-2">
+      <a href="/users"><button class="btn btn-warning mr-2">Voltar</button></a>
+      <a href="/registerDelivery"><button class="btn btn-warning">Cadastrar nova entrega</button></a>
+    </div>
+  </div>
+  <table class="table table-striped table-dark">
+    <thead>
+      <th scope="col">Nome</th>
+      <th scope="col">Produtos</th>
+      <th scope="col">Quantidade</th>
+      <th scope="col">Local</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Hora</th>
+      <th scope="col">Preço</th>
+      <th scope="col">Status</th>
+      <th scope="col">Ações</th>
+    </thead>
+    <tbody >
+      <tr *ngFor="let delivery of deliverys">
+     
+        <th scope="row">{{delivery.name}}</th>
+        <td>{{delivery.nameItem}}</td>
+        <td class="text-center">{{delivery.quantidade}}x</td>
+        <td>{{delivery.local}}</td>
+        <td><a href="https://wa.me/55{{delivery.phone}}" target="blank">{{delivery.phone | mask: '(00) 0 0000-0000'}}</a></td>
+        <td>{{delivery.hora}}</td>
+        <td >{{delivery.preco * delivery.quantidade | currency: 'BRL'}}</td>
+        <td>{{delivery.status}}</td>
+        <td class="row">
+          <div >
+           <a routerLink="/enabled/{{delivery.id}}" class="green"><fa-icon [icon]='faCheckCircle' class="fa-1x"></fa-icon></a>
+          </div>
+          <div class="ml-2 mr-2">
+           <a routerLink="/editListProduct/{{delivery.id}}" class="blue" title="Editar"><fa-icon [icon]='faPencilAlt' class="fa-1x"></fa-icon></a>
+          </div>
+          <div class="red">
+            <a routerLink="/deleted/{{delivery.id}}" class="red">  <fa-icon [icon]='faWindowClose' class="fa-1x"></fa-icon></a>
+          </div>
+        </td>      
+      </tr>     
+    </tbody>  
+  </table>
+  <div [hidden]="show"><h3 class="text-center">Não há registros</h3></div>
+</div>
