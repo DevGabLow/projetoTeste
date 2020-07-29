@@ -18,8 +18,9 @@ export class EditListProductComponent implements OnInit {
     status: '',
     quantity: '',
     itemName: '',
-    itemId: ''
+    itemId: 0
   };
+  idItem: number = 0 ;
   items: Array<any> = [];
   private token = `bearer ${localStorage.getItem('token')}`;
   constructor(private router: ActivatedRoute, private userService: UsersService,private routers: Router) { }
@@ -28,17 +29,23 @@ export class EditListProductComponent implements OnInit {
     this.router.params.subscribe(params=>{   
       this.userService.getOneDelivery(params.id)
       .subscribe(data =>{
-        this.del = data;    
+        this.del = data; 
+       this.idItem = this.del.itemId;
       });    
       this.userService.getItems(this.token).subscribe(data =>{
         this.items = data;
       })
     });
+
+    
     
   }
 
  update(form: FormGroup){
     if(form.valid){
+      if(this.del.itemId == null){
+        this.del.itemId = this.idItem;
+      }
       try {
         this.userService.updateDelivery(this.del,this.del.id)
         .subscribe(data=>{
