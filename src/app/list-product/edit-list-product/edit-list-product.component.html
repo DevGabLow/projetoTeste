@@ -17,7 +17,7 @@
                 </tr>
                 <tr>
                     <td>Telefone</td>
-                    <td>{{del.phone}}</td>
+                    <td>{{del.phone | mask: '(00) 0 0000-0000'}}</td>
                 </tr>
                 <tr>
                     <td>Hora</td>
@@ -54,11 +54,7 @@
                         <td>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="local" name="local" [(ngModel)]="del.local"
-                                    #local="ngModel" required minlength="3">
-                                <div class="" *ngIf="form.submitted && local.invalid">
-                                    <p class="alert alert-danger mt-2" *ngIf="local.errors.required">Esse campo é
-                                        requerido</p>
-                                </div>
+                                    #local="ngModel" minlength="3">
                             </div>
                         </td>
                     </tr>
@@ -67,11 +63,7 @@
                         <td>
                             <div class="form-group">
                                 <input type="tel" class="form-control" id="phone" name="phone" [(ngModel)]="del.phone"
-                                    #phone="ngModel" required minlength="3">
-                                <div class="" *ngIf="form.submitted && phone.invalid">
-                                    <p class="alert alert-danger mt-2" *ngIf="phone.errors.required">Esse campo é
-                                        requerido</p>
-                                </div>
+                                    #phone="ngModel" minlength="3">
                             </div>
                         </td>
                     </tr>
@@ -80,11 +72,7 @@
                         <td>
                             <div class="form-group">
                                 <input type="time" class="form-control" id="hora" name="hora" [(ngModel)]="del.hora"
-                                    #hora="ngModel" required minlength="3">
-                                <div class="" *ngIf="form.submitted && hora.invalid">
-                                    <p class="alert alert-danger mt-2" *ngIf="hora.errors.required">Esse campo é
-                                        requerido</p>
-                                </div>
+                                    #hora="ngModel"minlength="3">
                             </div>
                         </td>
                     </tr>
@@ -94,9 +82,12 @@
                             <div class="form-group">
                                 <label for="atual">Substituir</label>
                                 <select name="itemId" [(ngModel)]="del.itemId" #itemId="ngModel" id="itemId"
-                                    class="form-control">                                
+                                    class="form-control" required>                                
                                     <option *ngFor="let item of items" value="{{item.id}}">{{item.name}}</option>
-                                </select>                                
+                                </select>         
+                                <div *ngIf="form.submitted && itemId.valid">
+                                    <div class="alert alert-danger">Esse campo é requerido!</div>                       
+                                </div>
                             </div>
                         </td>
                     </tr>
