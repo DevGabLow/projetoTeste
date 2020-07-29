@@ -1,1 +1,3 @@
-$('#phone').mask("(##) # ####-####");
+$(document).ready(function(){
+    $('#phone').mask("(##) # ####-####");
+});
